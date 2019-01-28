@@ -6,7 +6,14 @@
                 <button @click="selectedComponent='app-author'">Author</button>
                 <button @click="selectedComponent='app-new'">New</button>
 
-                <component></component>
+                <p>{{selectedComponent}}</p>
+
+                <component :is="selectedComponent"> <p>default component</p> </component>
+                <hr>
+
+                <keep-alive>
+                <component :is="selectedComponent"> <p>default component</p> </component>
+                </keep-alive>
 
               <!-- <app-quote>
 
@@ -29,7 +36,7 @@
     export default {
         components:{
             'app-quote':Quote,
-            'app-author'Author,
+            'app-author':Author,
             'app-new':New,
         },
         data(){
